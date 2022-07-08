@@ -1,26 +1,27 @@
-import React from 'react';
+import React, {Component} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Message from "./components/Message";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const initialState = {
+  name: "Manny",
+  message: "Typescript cool!"
+}
+
+type State = Readonly<typeof initialState>;
+
+class App extends Component<any, State> {
+
+  render() {
+    return (
+      <div className="App">
+        <header className="App-header">
+          <img src={logo} className="App-logo" alt="logo"/>
+          <Message name={this.state.name} message={this.state.message}/>
+        </header>
+      </div>
+    );
+  }
 }
 
 export default App;
