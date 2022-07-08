@@ -11,6 +11,7 @@ const initialState = {
 type State = Readonly<typeof initialState>;
 
 class App extends Component<any, State> {
+  readonly state: State = initialState;
 
   render() {
     return (
